@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace upn_fundamentos_EF
+namespace upn_fundamentos_EF.Enunciado1
 {
-    public partial class Form1 : Form
+    public partial class FrmEnunciado1 : Form
     {
-        public Form1()
+        public FrmEnunciado1()
         {
             InitializeComponent();
         }
