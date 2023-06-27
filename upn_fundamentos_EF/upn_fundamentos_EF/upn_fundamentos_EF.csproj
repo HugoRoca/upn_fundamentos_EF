@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enunciado1\FrmEnunciado1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enunciado1\FrmEnunciado1.Designer.cs">
+      <DependentUpon>FrmEnunciado1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enunciado2\FrmEnunciado2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enunciado2\FrmEnunciado2.Designer.cs">
+      <DependentUpon>FrmEnunciado2.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
