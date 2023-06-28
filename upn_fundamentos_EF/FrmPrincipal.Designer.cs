@@ -57,6 +57,7 @@
             this.btnEnunciado2.TabIndex = 1;
             this.btnEnunciado2.Text = "Enunciado 2";
             this.btnEnunciado2.UseVisualStyleBackColor = false;
+            this.btnEnunciado2.Click += new System.EventHandler(this.btnEnunciado2_Click);
             // 
             // btnEnunciado1
             // 
@@ -69,6 +70,7 @@
             this.btnEnunciado1.TabIndex = 0;
             this.btnEnunciado1.Text = "Enunciado 1";
             this.btnEnunciado1.UseVisualStyleBackColor = false;
+            this.btnEnunciado1.Click += new System.EventHandler(this.btnEnunciado1_Click);
             // 
             // frmPrincipal
             // 
