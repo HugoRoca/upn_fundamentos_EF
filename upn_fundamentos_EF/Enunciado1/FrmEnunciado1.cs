@@ -17,6 +17,7 @@ namespace upn_fundamentos_EF.Enunciado1
             if (string.IsNullOrEmpty(txtArray.Text))
             {
                 MessageBox.Show("Debe ingresar un array!", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             string[] f_inputArray = txtArray.Text.Split(',');
@@ -81,6 +82,7 @@ namespace upn_fundamentos_EF.Enunciado1
         {
             txtArray.Clear();
             txtSalida.Clear();
+            txtArray.Focus();
         }
     }
 }

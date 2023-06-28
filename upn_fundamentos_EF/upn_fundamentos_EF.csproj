@@ -52,12 +52,14 @@
     <Compile Include="Enunciado1\FrmEnunciado1.Designer.cs">
       <DependentUpon>FrmEnunciado1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enunciado2\BLJuego.cs" />
     <Compile Include="Enunciado2\FrmEnunciado2.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Enunciado2\FrmEnunciado2.Designer.cs">
       <DependentUpon>FrmEnunciado2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enunciado2\JuegoModel.cs" />
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +70,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Enunciado1\FrmEnunciado1.resx">
       <DependentUpon>FrmEnunciado1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enunciado2\FrmEnunciado2.resx">
+      <DependentUpon>FrmEnunciado2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
