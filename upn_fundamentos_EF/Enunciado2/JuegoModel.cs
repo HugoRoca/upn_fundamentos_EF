@@ -2,17 +2,17 @@
 {
     public class JuegoModel
     {
-        public string Nombre { get; set; }
-        public int Puntaje { get; set; }
-        public bool Victoria { get; set; }
+        public string f_Nombre { get; set; }
+        public int f_Puntaje { get; set; }
+        public bool f_Victoria { get; set; }
 
-        public JuegoModel(string nombre, int puntaje, bool victoria)
+        public JuegoModel(string f_nombre, int f_puntaje, bool f_victoria)
         {
-            Nombre = nombre;
-            Puntaje = puntaje;
-            Victoria = victoria;
+            f_Nombre = f_nombre;
+            f_Puntaje = f_puntaje;
+            f_Victoria = f_victoria;
         }
 
-        public string VictoriaTexto => Victoria ? "Ganado" : "Perdido";
+        public string f_VictoriaTexto => f_Victoria ? "Ganado" : "Perdido";
     }
 }

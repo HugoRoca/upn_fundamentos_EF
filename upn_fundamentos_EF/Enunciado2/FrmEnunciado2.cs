@@ -7,7 +7,7 @@ namespace upn_fundamentos_EF.Enunciado2
 {
     public partial class FrmEnunciado2 : Form
     {
-        private BLJuego blJuego = new BLJuego();
+        private BLJuego f_blJuego = new BLJuego();
 
         public FrmEnunciado2()
         {
@@ -16,48 +16,62 @@ namespace upn_fundamentos_EF.Enunciado2
 
         private void FrmEnunciado2_Load(object sender, EventArgs e)
         {
-            blJuego.LoadGameData();
-            lblTotal.Text = blJuego.ObtenerPuntos().ToString();
+            try
+            {
+                f_blJuego.CargarDatos();
+                lblTotal.Text = f_blJuego.ObtenerPuntos().ToString();
 
-            CargarGridView();
+                CargarGridView();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha sucedido un error, intente de nuevo!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtJuego.Text))
+            try
             {
-                MessageBox.Show("Debe ingresar nombre del juego!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (string.IsNullOrEmpty(txtJuego.Text))
+                {
+                    MessageBox.Show("Debe ingresar nombre del juego!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtJuego.Focus();
+                    return;
+                }
+
+                int f_puntos = rbVictoria.Checked ? 100 : -20;
+
+                f_blJuego.GuardarJuego(new JuegoModel(
+                    txtJuego.Text,
+                    f_puntos,
+                    rbVictoria.Checked)
+                    );
+
+                f_blJuego.AsignarPuntos(f_puntos);
+                lblTotal.Text = f_blJuego.ObtenerPuntos().ToString();
+
+                dgvLista.Rows.Add(txtJuego.Text.ToUpper(), f_puntos, rbVictoria.Checked ? "Ganado" : "Perdido");
+
+                txtJuego.Clear();
                 txtJuego.Focus();
-                return;
+                rbVictoria.Checked = true;
             }
-
-            int puntos = rbVictoria.Checked ? 100 : -20;
-
-            blJuego.GuardarJuego(new JuegoModel(
-                txtJuego.Text,
-                puntos,
-                rbVictoria.Checked)
-                );
-
-            blJuego.AsignarPuntos(puntos);
-            lblTotal.Text = blJuego.ObtenerPuntos().ToString();
-
-            dgvLista.Rows.Add(txtJuego.Text.ToUpper(), puntos, rbVictoria.Checked ? "Ganado" : "Perdido");
-
-            txtJuego.Clear();
-            txtJuego.Focus();
-            rbVictoria.Checked = true;
+            catch (Exception)
+            {
+                MessageBox.Show("Ha sucedido un error, intente de nuevo!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CargarGridView()
         {
-            List<JuegoModel> juegos = blJuego.ObtenerJuegos();
+            List<JuegoModel> f_juegos = f_blJuego.ObtenerJuegos();
 
-            if (!juegos.Any()) return;
+            if (!f_juegos.Any()) return;
 
-            foreach (var item in juegos)
+            foreach (var f_item in f_juegos)
             {
-                dgvLista.Rows.Add(item.Nombre.ToUpper(), item.Puntaje, item.VictoriaTexto);
+                dgvLista.Rows.Add(f_item.f_Nombre.ToUpper(), f_item.f_Puntaje, f_item.f_VictoriaTexto);
             }
         }
     }
